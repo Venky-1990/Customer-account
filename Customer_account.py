@@ -144,6 +144,7 @@ class customeraccount:
             print("Type:", transaction["type"])
             print("Amount:", transaction["amount"])
             print("Balance:", transaction["balance"])
+            print("--------------------")
 
         
 C1=customeraccount("Venkat","venkat@123.com",9515205359,29)
