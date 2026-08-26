@@ -26,6 +26,7 @@ class customeraccount:
         self.__email_otp_time=None
         self.__phone_otp_time=None
         self.__balance=0
+        self.transaction_history=[]
     def get_fullname(self):
         return self.__fullname
     def get_email_address(self):
@@ -88,6 +89,11 @@ class customeraccount:
             return
         if amount>0:
             self.__balance+=amount
+            self.__transaction_history.append({
+            "type": "Deposit",
+            "amount": amount,
+            "balance": self.__balance
+            })
             print("amount deposited:",amount)
             print("current balance:",self.__balance)
         else:
@@ -102,6 +108,11 @@ class customeraccount:
             print("Insufficient balance")
         else:
             self.__balance-=amount
+            self.__transaction_history.append({
+            "type": "Deposit",
+            "amount": amount,
+            "balance": self.__balance
+            })
             print("amount withdrawn:",amount)
             print("current balance:",self.__balance)
             
@@ -127,6 +138,14 @@ class customeraccount:
         print("phone verified:",self.__phone_verified)
         print("fully verified:",self.isfullyverified())
         print("Balance:",self.__balance)
+    def transaction_history(self):
+        print("\nTransaction History")
+        for transaction in self.__transaction_history:
+            print("Type:", transaction["type"])
+            print("Amount:", transaction["amount"])
+            print("Balance:", transaction["balance"])
+
+        
 C1=customeraccount("Venkat","venkat@123.com",9515205359,29)
 C2=customeraccount("Rajesh","rajesh@123.com",9701139222,32)
 C1.display()
