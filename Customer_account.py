@@ -26,7 +26,7 @@ class customeraccount:
         self.__email_otp_time=None
         self.__phone_otp_time=None
         self.__balance=0
-        self.transaction_history=[]
+        self.__transaction_history= []
     def get_fullname(self):
         return self.__fullname
     def get_email_address(self):
@@ -138,8 +138,8 @@ class customeraccount:
         print("phone verified:",self.__phone_verified)
         print("fully verified:",self.isfullyverified())
         print("Balance:",self.__balance)
-    def print_add_transaction_history(self):
-        print("\nTransaction History")
+    def display_transaction_history(self):
+        print("\nTransaction History:")
         for transaction in self.__transaction_history:
             print("Type:", transaction["type"])
             print("Amount:", transaction["amount"])
@@ -181,6 +181,7 @@ print("Fully verified:",C2.isfullyverified())
 amount=float(input("Enter deposit amount: "))
 time.sleep(3)
 C1.deposit(amount)
+C1.display_transaction_history()
 time.sleep(3)
 C1.deposit(9000)
 time.sleep(3)
