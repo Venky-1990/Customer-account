@@ -138,7 +138,7 @@ class customeraccount:
         print("phone verified:",self.__phone_verified)
         print("fully verified:",self.isfullyverified())
         print("Balance:",self.__balance)
-    def transaction_history(self):
+    def print_add_transaction_history(self):
         print("\nTransaction History")
         for transaction in self.__transaction_history:
             print("Type:", transaction["type"])
